@@ -1,0 +1,47 @@
+{
+  "name": "@qc/css-properties",
+  "version": "1.0.0-alpha",
+  "description": "",
+  "keywords": [
+    "css",
+    "properties"
+  ],
+  "author": {
+    "name": "Danny Hurlburt",
+    "url": "https://github.com/dhurlburtusa"
+  },
+  "homepage": "https://github.com/hypersoftllc/qc-css-properties",
+  "license": "ISC",
+  "--browserslist--": "See .browserslistrc.",
+  "engines": {
+    "node": ">=7.4.0",
+    "npm": ">=4.0.0"
+  },
+  "files": [
+    "dist/",
+    "src/"
+  ],
+  "main": "dist/styles/css-properties.css",
+  "bugs": {
+    "url": "https://github.com/hypersoftllc/qc-css-properties/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hypersoftllc/qc-css-properties.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "postcss src/css-properties.css -u autoprefixer --no-map -o dist/styles/css-properties.css && postcss dist/styles/css-properties.css -u autoprefixer -u cssnano --map -o dist/styles/css-properties.min.css",
+    "clean": "rimraf dist/",
+    "prepublishOnly": "npm run clean && npm run build",
+    "travisci": "npm run build"
+  },
+  "devDependencies": {
+    "autoprefixer": "^8.2.0",
+    "cssnano": "^3.10.0",
+    "postcss-cli": "^5.0.0",
+    "rimraf": "^2.6.2"
+  }
+}
